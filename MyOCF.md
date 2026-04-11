@@ -22,7 +22,7 @@ n & \alpha=n\land n\in \mathbb{N_0} \\
 \)
 \( (A\,onto)^\alpha B=\begin{cases}
 A\,onto(A\,onto)^\beta B & \alpha=\beta+1 \\
-\{\beta\mid\forall\nu<\alpha,\exists\beta\in (A\,onto)^\nu B \} & cf(\alpha)=\omega \\
+\{\alpha\mid\forall\nu<\alpha,\exists\beta\in (A\,onto)^\nu B \} & cf(\alpha)=\omega \\
 \{\nu\mid\forall\beta<\nu,\nu\in(A\,onto)^{\alpha[\beta]}B\} & cf(\alpha)=\omega_1
 \end{cases} \)
 ## 2. BOCF
