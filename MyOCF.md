@@ -1,24 +1,36 @@
 ## 0.反射前置
-\( (a-)^{\lambda\alpha.(\alpha)}\,b=\{ \mu \mid \forall \beta <  \mu\land\mu\in(a-)^\beta\,b \} \)
-\( (a-)^{\lambda\alpha(\beta+\alpha)}\,b=\{ \mu \mid \forall \nu <  \mu\land\mu\in(a-)^{\lambda\alpha(\beta+\nu)}\,b \} \)
-\( (a-)^{\lambda\alpha(\beta*\alpha)}\,b=\{ \mu \mid \forall \nu <  \mu\land\mu\in(a-)^{\lambda\alpha(\beta*\nu)}\,b \} \)
-\( (a-)^{\lambda\alpha(\beta^\alpha)}\,b=\{ \mu \mid \forall \nu <  \mu\land\mu\in(a-)^{\lambda\alpha(\beta^\nu)}\,b \} \)
-\( (a-)^{\lambda\alpha(\alpha\,th \forall \beta \mapsto f(\beta) )}\,b=\{ \mu \mid \forall \nu <  \mu\land\mu\in(a-)^{\lambda\alpha(\nu\,th \forall \beta \mapsto f(\beta) )}\,b \} \)(ki到\(\alpha\)的\(BHO\)类似物)
-## 1 BOCF
-\( C^B(\alpha,\beta,0)=\Omega_\beta\cup\{\lambda\alpha.\Omega_{\alpha+\beta}\} \)
-\( C^B(\alpha,\beta,n+1)=\{\nu+\mu\mid \nu,\mu\in C^B(\alpha,\beta,n) \}\cup
-\{ \psi_\nu(\mu)\mid \nu,\mu\in C^B(\alpha,\beta,n)\land  \mu \in C^B(\mu,\nu)\cap\alpha \}\cup
-\{\mu\: th\: a\mid a \ge \Pi_2\land a\in A(\omega)\land \mu\in C^B(\alpha,\beta,n)\cap\alpha\ \}\cup
-\{(a\, onto)^\nu\: b\mid \nu\in C^B(\alpha,\beta,n)\land b\ge \Pi_2\land a,b\in A(\omega) \}\cup 
-C^B(\alpha,\beta,n) \)
-\(C^B(\alpha,\beta)=\bigcup_{n<\omega} C^B(\alpha,\beta,n) \)
-\( \psi^B_\beta(\beta)=min\{\mu\mid \mu \in Ord\land \mu \notin C^B(\alpha,\beta) \}  \) 
-\( \psi^B_{\lambda\alpha.(\alpha+\beta)}(\beta)=max\{\mu\mid\mu \in C^B(\alpha,\beta) \land\mu \notin Ord\land \mu < \lambda\alpha.\Omega_{\alpha+\beta+1} \}  \) 
-## 2 WOCF
-\( C^W(\alpha,\beta,0)=\Omega_\beta\cup\{\lambda\alpha.\Omega_{\alpha+\beta}\} \)
->
-\( C^W(\alpha,\beta,n+1)=\{\nu+1\mid \nu\in C^W(\alpha,\beta,n) \}\cup\{ \psi_\nu(\mu)\cap\mid \nu,\mu\in C^W(\alpha,\beta,n)\land  \mu \in C^W(\mu,\nu)\cap\Omega_{max\{\beta,\nu+1\}}\cap\alpha \}\cup\{\mu\: th\: a\mid a \ge \Pi_2\land a\in A(\omega)\land \mu\in C^W(\alpha,\beta,n)\cap\alpha\ \}\cup\{\mu\: th\:(a \:onto)^\nu\:b\mid \nu\in C^W(\alpha,\beta,n)\land b\ge \Pi_2\land a,b\in A(\omega)\}\cup C^W(\alpha,\beta,n) \)
-\(C^W(\alpha,\beta)=\bigcup_{n<\omega} C^W(\alpha,\beta,n) \)
-\( \psi^W_\beta(\beta)=min\{\mu\mid \mu \in Ord\land \mu \notin C^W(\alpha,\beta) \}  \) 
-\( \psi^W_{\lambda\alpha.(\alpha+\beta)}(\beta)=max\{\mu\mid\mu \in C^W(\alpha,\beta) \land\mu \notin Ord\land \mu < \lambda\alpha.\Omega_{\alpha+\beta+1} \}  \) 
+\( \omega_n=\begin{cases}
+min\{ \alpha \mid \alpha \in Ord \land \Vert \alpha \Vert = \aleph_n \} & n>0 \\
+1 & n=0
+\end{cases}
+\)
+对于反射定义等全体序数在当前情况下，均指\( \in \omega_2 \)
+\(\Pi_0=Ord\)
+\(\forall a,b\in Refl_n\rightarrow a \cap b \in Refl_n\land \forall\alpha(\alpha\in Ord\land\alpha\ge n)\rightarrow \Pi_\alpha \,onto\,A , \Pi_\alpha \,onto\,B \in Refl_n\)
+\( \Omega_n=\begin{cases}
+n\,th\,\Pi_2 & \exists \beta (\alpha=\beta+1 ) \\
+\beta \,th\,\Pi_1\,onto\,\Pi_2 & \exists \beta (\alpha=\omega*\beta )
+\end{cases}
+\)
+\( Inc(\alpha)=\begin{cases}
+Inc(\mu)+Inc(\nu) & \alpha=\mu+\nu \\
+\psi_{\omega_1+Inc(\nu)}(Inc(\mu)) & \alpha=\psi_\nu(\mu)\land \nu>0 \\
+n & \alpha=n\land n\in \mathbb{N_0} \\
+(\omega_1+n)\,th\,A & A\in Refl_2
+\end{cases}
+\)
+\( (A\,onto)^\alpha B=\begin{cases}
+A\,onto(A\,onto)^\beta B & \alpha=\beta+1 \\
+\{\beta\mid\forall\nu<\alpha,\exists\beta\in (A\,onto)^\nu B \} & cf(\alpha)=\omega \\
+\{\nu\mid\forall\beta<\nu,\nu\in(A\,onto)^{\alpha[\beta]}B\} & cf(\alpha)=\omega_1
+\end{cases} \)
+## 2. BOCF
+\( C(\alpha,\beta,0)=\Omega_\beta\cup\{\omega_1\}\cup\{\Pi_n\mid 0 < n < \omega \} \)
+\( C(\alpha,\beta,n+1)=\{\nu+\mu\mid \nu,\mu\in C(\alpha,\beta,n) \}\cup
+\{ \psi_\nu(\mu)\mid \nu,\mu\in C(\alpha,\beta,n)\land \mu \in C(\mu,\nu)\land ((\beta<\omega_1\land\nu\ge\omega_1\land\mu< Inc(\alpha))\lor(\mu<\alpha)) \}\cup
+\{\mu\: th\: A\mid A\in Refl_2\cap C(\alpha,\beta,n)\land \mu\in C(\alpha,\beta,n)\land((\mu\ge\omega_1\land\mu< Inc(\alpha))\lor(\mu<\alpha)) \}\cup
+\{(A\, onto)^\mu\: B\mid \mu\in C(\alpha,\beta,n)\land A,B\in C(\alpha,\beta,n)\land B\in Refl_2 \land((\mu\ge\omega_1\land\mu< Inc(\alpha))\lor(\mu<\alpha)) \}\cup 
+C(\alpha,\beta,n) \)
+\(C(\alpha,\beta)=\bigcup_{n<\omega} C(\alpha,\beta,n) \)
+\( \psi_\beta(\beta)=min\{\mu\mid \mu \in Ord\land \mu \notin C(\alpha,\beta) \}  \) 
 
