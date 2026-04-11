@@ -5,6 +5,7 @@ min\{ \alpha \mid \alpha \in Ord \land \Vert \alpha \Vert = \aleph_n \} & n>0 \\
 \end{cases}
 \)
 对于反射定义等全体序数在当前情况下，均指\( \in \omega_2 \)
+以\(\{\alpha\mid \alpha<\omega_1\}\)作为\(\omega_1\)的基本列
 \(\Pi_0=Ord\)
 \(\forall a,b\in Refl_n\rightarrow a \cap b \in Refl_n\land \forall\alpha(\alpha\in Ord\land\alpha\ge n)\rightarrow \Pi_\alpha \,onto\,A , \Pi_\alpha \,onto\,B \in Refl_n\)
 \( \Omega_n=\begin{cases}
