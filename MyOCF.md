@@ -1,4 +1,9 @@
 # 0.前置
+\( \omega_n=\begin{cases}
+min\{ \alpha \mid \alpha \in Ord \land \Vert \alpha \Vert = \aleph_n \} & n>0 \\
+1 & n=0
+\end{cases}
+\)
 $ \forall\alpha\in On \forall A(\forall\beta\exists\gamma(\beta,\gamma\in A\leftrightarrow\beta\in\gamma))\leftrightarrow A \,\mathrm{aft}\,\alpha=\{\mu:\alpha\in\mu,\mu\in A\} $
 $ A=(a_1,\dots,a_n)(a_i\in On,1\le i \le n) $:
 - $ (n=1\rightarrow B=\Pi_{a_1})\lor(n>1\land((a_1\le a_2\rightarrow B=\Pi_{a_n}\;onto\;seqturnrefl((a_2,\dots,a_n)))\lor(a_1>a_2\rightarrow B=\Pi_{a_n}\cap seqturnrefl((a_2,\dots,a_n)))))\leftrightarrow seqturnrefl(A)=B $
@@ -17,6 +22,15 @@ $(A\;onto)^\alpha \,B=\begin{cases}
 A\;onto\,(A\;onto)^\beta \,B & \alpha=\beta+1 \\
 \{\mu\mid\forall\beta<\alpha,\mu\in(A\;onto)^\beta\,B\}
 \end{cases}$
+$ \alpha\;th\;A=\begin{cases}
+sup\{\nu:\mu\;th\;A,\mu\in\alpha \} & \alpha>0\\
+1 & \alpha=0
+\end{cases} $
+\( (A\,onto)^\alpha B=\begin{cases}
+A\,onto(A\,onto)^\beta B & \alpha=\beta+1 \\
+\{\beta\mid\forall\nu<\alpha,\exists\beta\in (A\,onto)^\nu B \} & cf(\alpha)=\omega \\
+\{\nu\mid\forall\beta<\nu,\nu\in(A\,onto)^{\alpha[\beta]}B\} & cf(\alpha)=\omega_1
+\end{cases} \)
 <!-- # 1.OCF(集合论)
 $ C(\alpha,\beta,A,0)=\beta\,th\,A $
 $ C(\alpha,\beta,A,n+1)=\{min\ (A,\mathrm{aft})^\mu\nu:\nu,\mu\in C(\alpha,\beta,A,n)\}
@@ -28,4 +42,8 @@ $ \psi_\pi(\alpha,A)=min\{ \nu : \pi\cap C(\alpha,\nu,A)\subseteq\nu  \} $ -->
 $ C(\alpha,\beta,0)=\beta $
 $ C(\alpha,\beta,n+1) = \{ \nu+\mu,\nu*\mu,\nu^\mu,\psi_\xi(\gamma),\Omega_\nu,\Iota_\nu:\gamma,\nu,\mu,\xi\in C(\alpha,\beta,n)\land\gamma\in\alpha\cap C(\gamma,\xi) \} $
 $ C(\alpha,\beta)=\bigcup_{i\in \omega} C(\alpha,\beta,i) $
-$ \psi_\pi(\alpha)=min \{ \nu : \pi\cap C(\alpha,\nu)\subseteq\nu \} $
+$ \psi_\pi(\alpha)=\begin{cases}
+min \{ \nu :\nu\in ((seqturnrefl(bp(B))\;onto)^{\omega_1}seqturnrefl(gp(B)) )/(\mathrm{min}(((seqturnrefl(bp(B))\;onto)^{\omega_1}seqturnrefl(gp(B)) )\mathrm{aft}\;\xi\;th\;A ) \cap C(\alpha,\xi\;th\;A)) \} & \pi=\xi+1\;th\;A\land\xi>0\land\exists B (A=seqturnrefl(B))\\
+min \{ \nu : \nu\in\pi\cap C(\alpha,\beta) \} & \pi=\beta+1\\
+...
+\end{cases} $
