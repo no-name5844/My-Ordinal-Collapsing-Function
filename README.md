@@ -2,24 +2,50 @@
 
 ## 项目简介
 
-MyOCF是一个关于序数坍缩函数（Ordinal Collapsing Function, OCF）的数学研究项目，专注于反射序数和BOCF（Bachmann-Howard Ordinal Collapsing Function）的定义与应用。
+MyOCF（My Ordinal Collapsing Function）是一个关于序数坍缩函数（Ordinal Collapsing Function, OCF）的数学研究项目，基于BOCF（Buchholz Ordinal Collapsing Function）系统的扩展的定义与实现。
 
 ## 核心概念
 
-### 1. 反射前置定义
+### 1. 前置定义
 
-- **ω_n**：定义为最小的序数α，使得其势为ℵ_n（n>0时），或1（n=0时）
-- **Refl_n**：反射序数集合，满足交闭包性质
-- **Ω_n**：根据序数形式定义的分层结构
-- **Inc(α)**：增量函数，用于计算序数的复杂度
-- **(A onto)^α B**：反射操作的迭代形式
+#### 基本记号
+
+- **Π_0 = On**：序数类的基本定义
+- **aft α**：定义集合的后继关系，表示所有包含α作为元素的序数
+
+#### 结构函数
+
+对于序列A = (a_1, ..., a_n)，定义：
+
+- **str(A)**：根据序列元素的偏序关系确定结构类型
+- **gp(A)**：获取序列的主元组
+- **bp(A)**：获取序列的后向投影
+
+#### 反射操作
+
+- **(A onto)^α B**：反射运算的迭代形式
+  - 当α = β+1时：A onto (A onto)^β B
+  - 当cf(α) = ω时：{μ | ∀β < α, μ ∈ (A onto)^β B}
+
+- **α th A**：序数α在集合A中的序数位置
 
 ### 2. BOCF系统
 
-BOCF（Bachmann-Howard Ordinal Collapsing Function）是一个用于表示和计算序数的系统，包括：
+BOCF是一种序数坍缩函数，用于表示和计算大序数。
 
-- **C(α,β,n)**：构造函数，通过递归方式生成序数集合
-- **ψ_β(β)**：序数函数，定义为不在C(α,β)中的最小序数
+#### 构造函数
+
+- **C(α,β,0)**：初始阶段，包含β和最小的Π_i（1 < i < ω）
+- **C(α,β,n+1)**：递归阶段，包含：
+  - ν + μ（加法）
+  - ψ_ξ(γ)（坍缩函数）
+- **C(α,β)**：所有阶段的并集，⋃_{i∈ω} C(α,β,i)
+
+#### 坍缩函数
+
+**ψ_π(α)**的定义：
+- 当π = ξ + 1 th A且ξ > 0时：min { ν : ν ∈ (str(bp(B)) onto str(gp(B))) / C(α, ξ th A) }
+- 当π = 0时：值为0
 
 ## 文件结构
 
@@ -33,8 +59,9 @@ BOCF（Bachmann-Howard Ordinal Collapsing Function）是一个用于表示和计
 本项目基于序数理论和反射原理，主要研究内容包括：
 
 1. 反射序数的性质和结构
-2. 序数计算系统的构造方法
-
+2. 序数坍缩函数的构造方法
+3. Bachmann-Howard序数的表示和计算
+4. 稳定序数和反射的交互关系
 
 ## 应用领域
 
@@ -56,5 +83,3 @@ BOCF（Bachmann-Howard Ordinal Collapsing Function）是一个用于表示和计
 - 扩展反射和稳定序数的性质研究
 - 优化BOCF系统的计算效率
 - 探索在证明论中的应用
-
-
